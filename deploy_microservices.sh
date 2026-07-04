@@ -86,10 +86,10 @@ PROD_URL="${PROD_URL%/}"
 DEALER_URL="${DEALER_URL%/}"
 
 echo "Replacing http://localhost:5000/ with $PROD_URL/"
-sed -i "s|http://localhost:5000/|$PROD_URL/|g" index.html
+sed -i "s|http://localhost:5000/|$PROD_URL/|g" html/index.html
 
 echo "Replacing http://localhost:8080/ with $DEALER_URL/"
-sed -i "s|http://localhost:8080/|$DEALER_URL/|g" index.html
+sed -i "s|http://localhost:8080/|$DEALER_URL/|g" html/index.html
 
 # 6. Deploy Frontend Microservice
 echo ""

@@ -26,7 +26,7 @@ echo "----------------------------------------------------------"
 echo ">>> TASK 4: Code Changes in index.html (URLs Updated)"
 echo "----------------------------------------------------------"
 echo "Run this command to view/screenshot the updated URLs in index.html:"
-echo "  grep -n -E \"codeengine|appdomain|localhost\" /home/project/dealer_evaluation_frontend/index.html"
+echo "  grep -n -E \"codeengine|appdomain|localhost\" /home/project/dealer_evaluation_frontend/html/index.html"
 echo ""
 
 echo "----------------------------------------------------------"
