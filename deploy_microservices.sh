@@ -23,6 +23,13 @@ if [ -z "$SN_ICR_NAMESPACE" ]; then
 fi
 echo "Using registry namespace: $SN_ICR_NAMESPACE"
 
+# 2. Cleanup existing deployments for a clean re-run
+echo ""
+echo ">>> Cleaning up any existing application deployments..."
+ibmcloud ce application delete --name prodlist --force || true
+ibmcloud ce application delete --name dealerdetails --force || true
+ibmcloud ce application delete --name frontend --force || true
+
 # 2. Deploy Product Details Backend (prodlist)
 echo ""
 echo ">>> Step 1: Deploying Product Details microservice (Python)..."
