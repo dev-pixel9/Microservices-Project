@@ -10,9 +10,16 @@ echo ""
 
 # 1. Verify Namespace
 if [ -z "$SN_ICR_NAMESPACE" ]; then
-  echo "SN_ICR_NAMESPACE is not set. Extracting from ibmcloud..."
-  NAMESPACE=$(ibmcloud cr namespaces | grep "sn-labs-" | xargs)
-  export SN_ICR_NAMESPACE=$NAMESPACE
+  if [ ! -z "$1" ]; then
+    export SN_ICR_NAMESPACE="$1"
+  else
+    echo "Error: SN_ICR_NAMESPACE environment variable is not set."
+    echo "Please either:"
+    echo "  1) Run this script inside the pre-authenticated 'Code Engine CLI' terminal."
+    echo "  2) Or set the variable: export SN_ICR_NAMESPACE=your-namespace-name"
+    echo "  3) Or pass it as an argument: ./deploy_microservices.sh your-namespace-name"
+    exit 1
+  fi
 fi
 echo "Using registry namespace: $SN_ICR_NAMESPACE"
 
